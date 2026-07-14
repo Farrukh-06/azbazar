@@ -18,8 +18,12 @@ export default function ProductCard({ product }: { product: AnyProduct }) {
   return (
     <div className="card group overflow-hidden flex flex-col hover:shadow-md transition-shadow">
       <Link href={`/products/${product.id}`} className="block">
-        <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 h-44 flex items-center justify-center text-6xl border-b border-gray-100">
-          {product.image}
+       <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 h-44 flex items-center justify-center text-6xl border-b border-gray-100 overflow-hidden">
+          {product.image?.startsWith('http') ? (
+            <img src={product.image} alt={product.nameAz} className="w-full h-full object-cover" />
+          ) : (
+            <span>{product.image}</span>
+          )}
           {product.badge && <span className={`absolute top-2 left-2 badge-${product.badge}`}>{badgeLabel[product.badge] || product.badge}</span>}
           {discount > 0 && <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">−{discount}%</span>}
         </div>
