@@ -119,7 +119,7 @@ export default function AdminPage() {
                 <tr key={s.id} className="hover:bg-gray-50">
                   <td className="px-4 py-3"><div className="font-medium">{s.shop_name}</div><div className="text-xs text-gray-400">{s.location}</div></td>
                   <td className="px-4 py-3 text-gray-500">{s.phone}</td>
-                  <td className="px-4 py-3 text-gray-500">{s.category}</td>
+                  <td className="px-4 py-3 text-gray-500">{s.email}</td>
                   <td className="px-4 py-3 font-semibold text-indigo-600">{s.commission_rate}%</td>
                   <td className="px-4 py-3"><span className={`text-xs px-2 py-1 rounded-full font-medium ${s.status === 'approved' ? 'bg-green-50 text-green-600' : s.status === 'pending' ? 'bg-amber-50 text-amber-600' : 'bg-red-50 text-red-600'}`}>{s.status === 'approved' ? '✓ Təsdiqləndi' : s.status === 'pending' ? '⏳ Gözləyir' : '✗ Rədd edildi'}</span></td>
                   <td className="px-4 py-3">
