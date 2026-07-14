@@ -22,7 +22,7 @@ function ProductsContent() {
 
   useEffect(() => {
     setLoading(true);
-    getProducts({ search: search || undefined, category: selectedCat || undefined, badge: selectedBadge || undefined })
+    getProducts({ search: search || undefined, category: selectedCat || undefined })
       .then(data => {
         let sorted = [...data];
         if (sortBy === 'price-asc') sorted.sort((a, b) => a.price - b.price);
