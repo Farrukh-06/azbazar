@@ -9,7 +9,7 @@ export interface AnyProduct {
   name?: string;
   price: number;
   oldPrice?: number;
-  compare_price?: number;
+  compare_price?: number | null;
   image?: string;
   images?: string[];
   seller?: string;
