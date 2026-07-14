@@ -60,7 +60,7 @@ function ProductsContent() {
                 {categories.map(c => (
                   <button key={c.id} onClick={() => setSelectedCat(c.slug === selectedCat ? '' : c.slug)}
                     className={`w-full text-left text-sm px-2 py-1.5 rounded-lg transition-colors flex items-center gap-2 ${selectedCat === c.slug ? 'bg-indigo-600 text-white' : 'hover:bg-gray-50'}`}>
-                    <span>{c.icon}</span> {c.name_az}
+                    <span>{c.icon}</span> {c.name}
                   </button>
                 ))}
               </div>
