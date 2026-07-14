@@ -30,7 +30,7 @@ export default function CheckoutPage() {
     try {
       const order = await createOrder({ ...form, items: items as any });
       clearCart();
-      router.push(`/orders/${order.order_number}`);
+      router.push(`/orders/${order.orderNumber}`);
     } catch { setError('Sifariş zamanı xəta baş verdi. Yenidən cəhd edin.'); setLoading(false); }
   };
 
