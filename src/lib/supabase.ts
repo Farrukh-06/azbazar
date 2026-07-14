@@ -125,3 +125,39 @@ export const createOrder = async (orderData: {
 
   return { orderNumber, total };
 };
+export const getAllOrders = async () => {
+  const { data, error } = await supabase.from('orders').select('*, order_items(*)').order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data || []) as Order[];
+};
+export const getAllSellersAdmin = async () => {
+  const { data, error } = await supabase.from('sellers').select('*').order('created_at', { ascending: false });
+  if (error) throw error;
+  return (data || []) as Seller[];
+};
+export const updateSellerStatus = async (id: number, status: string) => {
+  const { error } = await supabase.from('sellers').update({ status }).eq('id', id);
+  if (error) throw error;
+};
+export const updateOrderStatus = async (id: number, status: string) => {
+  const { error } = await supabase.from('orders').update({ status }).eq('id', id);
+  if (error) throw error;
+};
+export const addProduct = async (data: Partial<Product>) => {
+  const { data: prod, error } = await supabase.from('products').insert(data).select().single();
+  if (error) throw error;
+  return prod as Product;
+};
+export const updateProduct = async (id: number, data: Partial<Product>) => {
+  const { error } = await supabase.from('products').update(data).eq('id', id);
+  if (error) throw error;
+};
+export const deleteProduct = async (id: number) => {
+  const { error } = await supabase.from('products').delete().eq('id', id);
+  if (error) throw error;
+};
+export const getOrdersBySellerUserId = async (sellerId: number) => {
+  const { data, error } = await supabase.from('order_items').select('*, orders(*)').eq('seller_id', sellerId).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data || [];
+};
