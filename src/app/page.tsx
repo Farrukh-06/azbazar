@@ -106,7 +106,7 @@ export default function HomePage() {
           <div className="flex items-center justify-center py-20"><Loader2 className="w-8 h-8 animate-spin text-indigo-600" /></div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {products.map(p => <ProductCard key={p.id} product={p} />)}
+            {products.map(p => <ProductCard key={p.id} product={p as any} />)}
           </div>
         )}
       </section>
