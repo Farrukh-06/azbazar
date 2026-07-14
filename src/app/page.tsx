@@ -76,7 +76,7 @@ export default function HomePage() {
               <Link key={cat.id} href={`/products?category=${cat.slug}`}
                 className="bg-white border border-gray-100 hover:border-indigo-300 hover:shadow-sm rounded-xl p-3 text-center transition-all cursor-pointer group">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{cat.icon}</div>
-                <div className="text-xs font-semibold text-gray-700 leading-tight">{cat.name_az}</div>
+                <div className="text-xs font-semibold text-gray-700 leading-tight">{cat.name}</div>
               </Link>
             ))}
         </div>
