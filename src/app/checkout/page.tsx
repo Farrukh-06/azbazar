@@ -28,7 +28,7 @@ export default function CheckoutPage() {
     if (!form.customerName || !form.customerPhone || !form.shippingAddress || !form.city) { setError('Bütün məcburi sahələri doldurun'); return; }
     setLoading(true); setError('');
     try {
-      const order = await createOrder({ ...form, items });
+      const order = await createOrder({ ...form, items: items as any });
       clearCart();
       router.push(`/orders/${order.order_number}`);
     } catch { setError('Sifariş zamanı xəta baş verdi. Yenidən cəhd edin.'); setLoading(false); }
