@@ -4,9 +4,24 @@ import { ShoppingCart, Star } from 'lucide-react';
 import { useCart } from '@/lib/CartContext';
 
 export interface AnyProduct {
-  id: string; nameAz: string; price: number; oldPrice?: number;
-  image: string; seller: string; sellerId: string; rating: number;
-  reviews: number; badge?: string; category?: string; categoryAz?: string;
+  id: number | string;
+  nameAz?: string;
+  name?: string;
+  price: number;
+  oldPrice?: number;
+  compare_price?: number;
+  image?: string;
+  images?: string[];
+  seller?: string;
+  seller_name?: string;
+  sellerId?: string | number;
+  seller_id?: number;
+  rating: number;
+  reviews?: number;
+  review_count?: number;
+  badge?: string | null;
+  category?: string;
+  categoryAz?: string;
 }
 
 const badgeLabel: Record<string, string> = { local: '🇦🇿 Yerli', new: '✨ Yeni', sale: '🏷 Endirim', hot: '🔥 Populyar' };
