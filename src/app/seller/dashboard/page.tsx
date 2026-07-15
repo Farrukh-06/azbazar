@@ -26,7 +26,7 @@ export default function SellerDashboard() {
       setSeller(sellerData);
       const [prods, ords, cats] = await Promise.all([
         supabase.from('products').select('*').eq('seller_id', sellerData.id).order('created_at', { ascending: false }).then(r => r.data || []),
-        getOrdersBySellerUserId(user.id),
+        getOrdersBySellerUserId(sellerData.id),
         getCategories(),
       ]);
       setProducts(prods); setOrders(ords); setCategories(cats);
